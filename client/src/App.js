@@ -1,12 +1,7 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 
-function App() {
-  return (
-    <>
-      <div style={{ display: "flex", justifyContent: "center" }}>react app</div>
-    </>
-  );
-}
+const App = () => {
+  return <div>App</div>;
+};
 
 export default App;
