@@ -17,7 +17,7 @@ const Tabs = styled(NavLink)`
 const Navbar = () => {
   return (
     <Header position="static">
-      <Toolbar>
+      <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
         <Tabs to="/" exact>
           All users
         </Tabs>

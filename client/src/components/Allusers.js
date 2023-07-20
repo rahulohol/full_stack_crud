@@ -9,7 +9,11 @@ import {
   Button,
   styled,
   Typography,
+  CircularProgress,
+  Box,
 } from "@mui/material";
+// import CircularProgress from "@mui/material/CircularProgress";
+// import Box from "@mui/material/Box";
 import { getUsers, deleteUser } from "../service/api";
 import { Link } from "react-router-dom";
 
@@ -34,7 +38,7 @@ const TRow = styled(TableRow)`
 `;
 
 const AllUsers = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(false);
 
   useEffect(() => {
     getAllUsers();
@@ -50,7 +54,7 @@ const AllUsers = () => {
     setUsers(response.data);
   };
 
-  return (
+  return users ? (
     <StyledTable>
       <TableHead>
         <THead>
@@ -92,7 +96,7 @@ const AllUsers = () => {
                       }
                     : {
                         // padding: "3",
-                        backgroundColor: "purple",
+                        backgroundColor: "#bf1a1a",
                         color: "white",
                         cursor: "initial",
                         fontWeight: "bold",
@@ -132,6 +136,18 @@ const AllUsers = () => {
         ))}
       </TableBody>
     </StyledTable>
+  ) : (
+    <Box
+      style={{
+        width: "100%",
+        display: "flex",
+        marginTop: 20,
+        justifyContent: "center",
+      }}
+    >
+      <CircularProgress sx={{ marginRight: 2 }} />
+      <Typography variant="h4"> Loading...</Typography>
+    </Box>
   );
 };
 
