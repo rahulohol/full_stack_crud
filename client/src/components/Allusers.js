@@ -16,6 +16,7 @@ import {
 // import Box from "@mui/material/Box";
 import { getUsers, deleteUser } from "../service/api";
 import { Link } from "react-router-dom";
+import NotFound from "./NotFound";
 
 const StyledTable = styled(Table)`
   width: 80%;
@@ -54,7 +55,21 @@ const AllUsers = () => {
     setUsers(response.data);
   };
 
-  return users ? (
+  return !users ? (
+    <Box
+      style={{
+        width: "100%",
+        display: "flex",
+        marginTop: 20,
+        justifyContent: "center",
+      }}
+    >
+      <CircularProgress sx={{ marginRight: 2 }} />
+      <Typography variant="h4"> Loading...</Typography>
+    </Box>
+  ) : users.length === 0 ? (
+    <NotFound />
+  ) : (
     <StyledTable>
       <TableHead>
         <THead>
@@ -136,18 +151,6 @@ const AllUsers = () => {
         ))}
       </TableBody>
     </StyledTable>
-  ) : (
-    <Box
-      style={{
-        width: "100%",
-        display: "flex",
-        marginTop: 20,
-        justifyContent: "center",
-      }}
-    >
-      <CircularProgress sx={{ marginRight: 2 }} />
-      <Typography variant="h4"> Loading...</Typography>
-    </Box>
   );
 };
 
