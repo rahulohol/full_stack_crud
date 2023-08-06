@@ -3,7 +3,7 @@ A Full stack crud application.
 
 # About this project: 🙌
 
-* It is an individual project carried out by me to perform all operation of crud.
+* It is an individual project carried out by me to perform all operations of crud.
 
 * Also implemented conditional rendering and error handling.
 * Fronted deployed on app.netlify.com
